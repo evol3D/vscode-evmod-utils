@@ -2,7 +2,7 @@
     "name": "evmod-utils",
     "displayName": "evmod utils",
     "description": "Syntax highlighting and linting for evmod.* files in evol modules.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "mo7sen",
     "engines": {
         "vscode": "^1.54.0"
