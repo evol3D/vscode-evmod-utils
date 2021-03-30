@@ -1,1 +1,23 @@
-{}
+{
+    "PrimaryEvent": {
+        "prefix": ["primary", "event-primary", "evp"],
+        "body": [
+            "PRIMARY(",
+            "    ${1:event_name}, {",
+            "        ${2:type} ${3:var};",
+            "    }",
+            ")"],
+        "description": "A type definition for a primary event"
+    },
+    "SecondaryEvent": {
+        "prefix": ["secondary", "event-secondary", "evs"],
+        "body": [
+            "SECONDARY(",
+            "    ${1:primary_event},",
+            "    ${2:event_name}, {",
+            "        ${3:type} ${4:var};",
+            "    }",
+            ")"],
+        "description": "A type definition for a primary event"
+    }
+}
