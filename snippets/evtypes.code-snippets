@@ -1,0 +1,30 @@
+{
+    "Struct": {
+        "prefix": ["struct", "type-struct", "tps"],
+        "body": [
+            "TYPE(",
+            "    ${1:type_name},",
+            "    struct {",
+            "        ${2:type} ${3:var};",
+            "    }",
+            ")"],
+        "description": "A type definition for a struct"
+    },
+    "Enumeration": {
+        "prefix": ["enum", "type-enum", "tpe"],
+        "body": [
+            "TYPE(",
+            "    ${1:type_name},",
+            "    enum {",
+            "        ${2:ENUM_OPTION_1},",
+            "        ${3:ENUM_OPTION_COUNT}",
+            "    }",
+            ")"],
+        "description": "A type definision for an enums"
+    },
+    "Alias": {
+        "prefix": ["alias", "type-alias", "tpa"],
+        "body": ["TYPE(${1:type_name}, ${2:alias_to})"],
+        "description": "A type alias to another type"
+    }
+}

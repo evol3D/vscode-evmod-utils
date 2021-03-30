@@ -47,6 +47,20 @@
                 "scopeName": "source.evevents",
                 "path": "./syntaxes/evevents.tmLanguage.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "evmod-types",
+                "path": "./snippets/evtypes.code-snippets"
+            },
+            {
+                "language": "evmod-namespaces",
+                "path": "./snippets/evnamespaces.code-snippets"
+            },
+            {
+                "language": "evmod-events",
+                "path": "./snippets/evevents.code-snippets"
+            }
         ]
     },
     "repository": {
