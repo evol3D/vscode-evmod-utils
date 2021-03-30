@@ -1,1 +1,17 @@
-{}
+{
+    "NamespaceBegin": {
+        "prefix": ["begin", "namespace-begin", "nsbeg"],
+        "body": ["EV_NS_DEF_BEGIN(${0:namespace})"],
+        "description": "Begins a namespace scope"
+    },
+    "NamespaceEnd": {
+        "prefix": ["end", "namespace-end", "nsend"],
+        "body": ["EV_NS_DEF_END(${0:namespace})"],
+        "description": "Ends a namespace scope"
+    },
+    "NamespaceFunction": {
+        "prefix": ["function", "namespace-function", "nsfn"],
+        "body": ["EV_NS_DEF_FN(${1:returntype}, ${2:fnname}, (${3:param_type}, ${4:param_var}))"],
+        "description": "Defines a function in a namespace scope"
+    }
+}
