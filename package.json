@@ -11,17 +11,43 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "evmod",
-            "aliases": ["evolmod", "evmod"],
-            "extensions": [".types",".namespaces",".events"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "evmod",
-            "scopeName": "source.evmod",
-            "path": "./syntaxes/evmod.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "evmod-types",
+                "aliases": ["evtypes"],
+                "extensions": [".types"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "evmod-namespaces",
+                "aliases": ["evnamespaces"],
+                "extensions": [".namespaces"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "evmod-events",
+                "aliases": ["evevents"],
+                "extensions": [".events"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "evmod-types",
+                "scopeName": "source.evtypes",
+                "path": "./syntaxes/evtypes.tmLanguage.json"
+            },
+            {
+                "language": "evmod-namespaces",
+                "scopeName": "source.evnamespaces",
+                "path": "./syntaxes/evnamespaces.tmLanguage.json"
+            },
+            {
+                "language": "evmod-events",
+                "scopeName": "source.evevents",
+                "path": "./syntaxes/evevents.tmLanguage.json"
+            }
+        ]
     },
     "repository": {
         "type": "git",

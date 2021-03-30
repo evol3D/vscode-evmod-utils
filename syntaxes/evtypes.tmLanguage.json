@@ -1,0 +1,79 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "evtypes",
+	"fileTypes": [".types"],
+	"patterns": [
+		{
+			"include": "#evmod_types"
+		}
+	],
+	"repository": {
+		"evmod_types": {
+			"patterns": [
+				{
+					"begin": "(TYPE)\\s*\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"1" : { "name" : "support.function.types.new"}
+					},
+					"patterns": [
+						{
+							"match": "\\s*(\\w+)\\s*,",
+							"captures": {"1": {"name": "support.class"}}
+						},
+						{ 
+							"begin": "(struct)\\s*\\{",
+							"end": "\\}",
+							"beginCaptures": {
+								"1": { "name" : "storage.modifier"}
+							},
+							"patterns": [
+								{
+									"match": ";?\\s*(\\w+\\s+\\w+)\\s*;?",
+									"captures": {
+										"1": { "patterns": [{"include": "#typevar_pair"}] }
+									}
+								}
+							]
+						},
+						{ 
+							"begin": "(enum)\\s*\\{",
+							"end": "\\}",
+							"beginCaptures": {
+								"1": { "name" : "storage.modifier"}
+							},
+							"patterns": [
+								{
+									"match": ",?(\\s*\\w+\\s*)(\\s*=\\s*\\d+\\s*)?,?",
+									"captures": {
+										"1": { "name": "support.variable" }
+									}
+								}
+							]
+						},
+						{
+							"match": "\\w+",
+							"name": "support.type"
+						}	
+					]					
+				}
+			]
+		},
+		"builtin_types": {
+			"patterns": [{
+				"name": "support.type.builtins",
+				"match": "\\b((I|U|F)(32|64)|(CONST_|)STR|(FN_|)PTR)\\b"
+			}]
+		},
+		"typevar_pair": {
+			"patterns": [{
+				"match": "(\\s*\\w+\\s*)(\\s*\\w+\\s*)",
+				"captures": {
+					"1": { "patterns": [{ "include": "#builtin_types" }] },
+					"2": { "name": "variable.parameter"}
+				}
+			}]
+		}
+	},
+	"scopeName": "source.evtypes"
+}

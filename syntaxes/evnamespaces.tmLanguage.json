@@ -1,0 +1,53 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "evnamespaces",
+	"fileTypes": [".namespaces"],
+	"patterns": [
+		{
+			"include": "#evmod_namespaces"
+		}
+	],
+	"repository": {
+		"evmod_namespaces": {
+			"patterns": [
+				{
+					"match": "(EV_NS_DEF_(BEGIN|END))\\((.+)\\)",
+					"captures": {
+						"1": { "name": "support.function" },
+						"2": { "name": "support.function" },
+						"3": { "name": "support.class"}
+					}
+				},
+				{
+					"begin": "(EV_NS_DEF_FN)\\s*\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"1" : { "name" : "support.function"}
+					},
+					"patterns": [
+						{
+							"begin": "\\s*(\\w+)\\s*,",
+							"end": ",",
+							"beginCaptures": {
+								"1": {"name": "storage.type"}
+							},
+							"patterns": [{
+								"match": "\\w+",
+								"name": "string"
+							}]
+						},
+						{ 
+							"match": "\\(\\s*(\\w+)\\s*,\\s*(\\w+)\\s*\\)",
+							"captures": {
+								"1": {"name": "support.class"},
+								"2": {"name": "support.variable"}
+							}
+							
+						}
+					]					
+				}
+			]
+		}
+	},
+	"scopeName": "source.evnamespaces"
+}
